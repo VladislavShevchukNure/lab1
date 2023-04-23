@@ -8,9 +8,6 @@ pipeline {
             }
         stage('terraform action') {
             steps {
-                git url:'https://github.com/VladislavShevchukNure/lab1.git', branch: "main"
-                sh "rm -rf lab1/"
-                sh "git clone https://github.com/VladislavShevchukNure/lab1.git"
                 echo "Terraform action is --> ${action}"
                 sh '''
                 cd s3_website
