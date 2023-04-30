@@ -13,7 +13,7 @@ pipeline {
                     sh '''
                     cd ec2_instance
                     ls
-                    terraform init
+                    terraform init -reconfigure
                     terraform plan
                     terraform ${action} -auto-approve '''
                 }
