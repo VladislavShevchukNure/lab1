@@ -1,10 +1,10 @@
 terraform {
-	backend "s3" {
+/*	backend "s3" {
    	bucket = "terraform-backend-shevchuk"
    	key = "terraform.tfstate"
   	region = "us-east-1"
  	dynamodb_table = "backendtable"
-}
+}*/
 
 	required_providers {
 		aws = {
