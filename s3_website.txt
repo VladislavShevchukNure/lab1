@@ -13,7 +13,7 @@ pipeline {
                 cd s3_website
                 ls
                 pwd
-                terraform init -migrate-state
+                terraform init
                 terraform plan
                 terraform ${action} -auto-approve '''
             }
