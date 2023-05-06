@@ -37,7 +37,7 @@ user_data = <<-EOF
 	sudo yum install httpd -y
 	sudo systemctl start httpd
 	sudo systemctl enable httpd
-	echo "<html><h1>Your webserv works!</h1></html>" > /var/www/html/index.html
+	echo "<html><h1>Hello! I`m Kate. My webserv works!</h1></html>" > /var/www/html/index.html
 	EOF
 }
 # Security group
