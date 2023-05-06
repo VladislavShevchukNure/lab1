@@ -13,7 +13,7 @@ agent any
                     sh '''
                     cd ec2_instance
                     ls
-                    terraform init -reconfigure
+                    terraform init
                     terraform plan
                     terraform ${action} -auto-approve '''
                 }
