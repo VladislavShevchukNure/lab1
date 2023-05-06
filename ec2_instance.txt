@@ -5,8 +5,8 @@ pipeline {
     region         = "us-east-1"
     dynamodb_table = "backendtable"
   }
-}
-    agent any
+
+agent any
         stages {
             stage('checkout') {
                 steps {
