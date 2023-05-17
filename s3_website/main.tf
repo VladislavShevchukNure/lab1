@@ -3,7 +3,7 @@ terraform {
 required_providers {
 		aws = {
 		source = "hashicorp/aws"
-		version = "4.64.0"
+		version = "~> 4.0"
 		}
 	}
 }
@@ -39,10 +39,26 @@ resource "aws_s3_bucket_website_configuration" "website_config" {
 		key = "error.html"
 	}
 }
-
+	#policy = data.aws_iam_policy_document.allow_access.json
+	#arn:aws:s3:::terraform-bucket-shevchuk3/*
 resource "aws_s3_bucket_policy" "allow_access" {
 	bucket = aws_s3_bucket.website.id
-	policy = data.aws_iam_policy_document.allow_access.json
+	policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+	  "Principal": "*",
+      "Action": [ "s3:*" ],
+      "Resource": [
+        "${aws_s3_bucket.website.arn}",
+        "${aws_s3_bucket.website.arn}/*"
+      ]
+    }
+  ]
+}
+EOF
 }
 
 data "aws_iam_policy_document" "allow_access" {
